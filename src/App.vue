@@ -3,7 +3,8 @@
         <div class="centered">
             <Calendar class="calendar" v-model="date"/>
             <div class="date-input-container">
-                <input v-model="jumpToDateValue" placeholder="Type date to jump (format MM/YYYY)" class="input" type="text">
+                <button @click="reset" class="button">reset</button>
+                <input v-model="jumpToDateValue" placeholder="Type date to jump" class="input" type="text">
                 <button @click="jump" class="button">set</button>
             </div>
         </div>
@@ -34,6 +35,10 @@
                 } else {
                     alert('invalid date format, please use MM/YYYY or M/YYYY, ex. 2/2020');
                 }
+            },
+            reset(){
+                this.jumpToDateValue = '';
+                this.date = new Date();
             }
         }
     };
@@ -83,13 +88,13 @@
             outline: none;
             text-align: center;
             font-size: 12px;
+            margin: 0 10px;
         }
         .button{
             width:100px;
             background-color: #1d2e3e;
             border: none;
             color:white;
-            margin-left: 20px;
             flex-shrink: 0;
             cursor: pointer;
             outline: none;
