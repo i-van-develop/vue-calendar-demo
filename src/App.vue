@@ -1,6 +1,12 @@
 <template>
     <div id="app">
-        <Calendar class="calendar" v-model="date"/>
+        <div class="centered">
+            <Calendar class="calendar" v-model="date"/>
+            <div class="date-input-container">
+                <input placeholder="Type date to jump (format MM/YYYY)" class="input" type="text">
+                <button class="button">set</button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -17,7 +23,7 @@
     };
 </script>
 
-<style>
+<style lang="scss">
     #app {
         font-family: Avenir, Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -31,13 +37,51 @@
         width: 100%;
         min-height: 100vh;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 
         background-color: #2c3e50;
     }
 
+    .centered{
+        width:400px;
+    }
+
     .calendar{
-        width:350px;
+        width:100%;
+    }
+
+    .date-input-container{
+        margin-top: 20px;
+        display: flex;
+        width:100%;
+
+        .input{
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #1d2e3e;
+            color:white;
+            padding: 10px;
+            flex-grow: 1;
+            outline: none;
+            text-align: center;
+            font-size: 12px;
+        }
+        .button{
+            width:100px;
+            background-color: #1d2e3e;
+            border: none;
+            color:white;
+            margin-left: 20px;
+            flex-shrink: 0;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 200ms, color 200ms;
+        }
+        .button:hover{
+            background-color: #fff;
+            color: #1d2e3e;
+        }
     }
 </style>

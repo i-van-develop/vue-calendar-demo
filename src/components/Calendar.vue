@@ -106,6 +106,7 @@
 <style scoped>
     .calendar {
         min-width: 300px;
+        box-sizing: border-box;
         background-color: #1d2e3e;
         padding: 20px;
     }
