@@ -105,7 +105,7 @@
 
 <style scoped>
     .calendar {
-        width: 360px;
+        min-width: 300px;
         background-color: #1d2e3e;
         padding: 20px;
     }
@@ -130,7 +130,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 32px;
+        width:calc(100% / 7);
         height: 32px;
     }
 

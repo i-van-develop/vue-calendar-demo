@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Calendar v-model="date"/>
+        <Calendar class="calendar" v-model="date"/>
     </div>
 </template>
 
@@ -17,7 +17,7 @@
     };
 </script>
 
-<style lang="scss">
+<style>
     #app {
         font-family: Avenir, Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -35,5 +35,9 @@
         align-items: center;
 
         background-color: #2c3e50;
+    }
+
+    .calendar{
+        width:350px;
     }
 </style>
