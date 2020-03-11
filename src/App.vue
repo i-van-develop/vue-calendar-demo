@@ -3,8 +3,8 @@
         <div class="centered">
             <Calendar class="calendar" v-model="date"/>
             <div class="date-input-container">
-                <input placeholder="Type date to jump (format MM/YYYY)" class="input" type="text">
-                <button class="button">set</button>
+                <input v-model="jumpToDateValue" placeholder="Type date to jump (format MM/YYYY)" class="input" type="text">
+                <button @click="jump" class="button">set</button>
             </div>
         </div>
     </div>
@@ -17,7 +17,23 @@
         components: { Calendar },
         data(){
             return{
-                date: new Date()
+                date: new Date(),
+                jumpToDateValue: ''
+            }
+        },
+        computed: {
+            isValidJump(){
+                return /^\d?\d\/\d\d\d\d$/.test(this.jumpToDateValue);
+            }
+        },
+        methods:{
+            jump(){
+                if (this.isValidJump){
+                    const jumpData = this.jumpToDateValue.split('/');
+                    this.date = new Date(parseInt(jumpData[1]), parseInt(jumpData[0]) - 1);
+                } else {
+                    alert('invalid date format, please use MM/YYYY or M/YYYY, ex. 2/2020');
+                }
             }
         }
     };
